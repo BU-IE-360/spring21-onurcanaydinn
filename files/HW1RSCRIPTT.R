@@ -12,35 +12,35 @@ unemployment<-read.xlsx("unemployment.xlsx")
 
 ggplot(unemployment,aes(x=UnemploymentRate))+geom_histogram()
 
-//
+
 
   unemployment<-data.table(unemployment)
 str(unemployment)
 
-//
+
   
   correl_info2=cor(unemployment)
 ggcorrplot(correl_info2,hc.order = TRUE, 
            type = "lower",
            lab = TRUE)
 ggpairs(unemployment)
-//
+
   
   lm1<-lm(UnemploymentRate~CapacityUtilizationRateofManufacturing+ DollarExchangeRate+FirmsStatisticsNewlyEstablished +InterestRate+ FirmsStatisticsNewlyClosed,data=unemployment)
 summary(lm1)
-//
+
   
   predicted=predict(lm1,unemployment)
 unemployment$predictions=predicted
 ggplot(unemployment,aes(x=UnemploymentRate,y=predictions))+geom_point()
-//
+
   
   step(lm1)
-//
+
   
   setwd("~/Downloads")
 searchkey<-read.xlsx("searchvolume.xlsx")
-//
+
   
   searchkey<-data.table(searchkey)
 
@@ -53,7 +53,7 @@ ggplot(unemployment, aes(x=InterestRate)) + geom_histogram()
 ggplot(unemployment, aes(x=FirmsStatisticsNewlyClosed)) + geom_histogram()
 ggplot(unemployment, aes(x=UnemploymentRate)) + geom_histogram()
 searchkey$Issızlık<-as.numeric(searchkey$Issızlık)
-//
+
   
   cor_1<-cor(searchkey$Issızlık,unemployment$CapacityUtilizationRateofManufacturing,use='complete.obs')
 cor_2<-cor(searchkey$Issızlık,unemployment$DollarExchangeRate,use='complete.obs')
