@@ -2,8 +2,8 @@
 
 ## Homework 0
 
-[Access to HW-0](files/HW-0.html) is the Homework 0 file.
+[Access to Homework 0](files/HW-0.html) is the Homework 0 file.
 
 ## Homework 1
 
-[Access to HW-0](files/360HW1.html) is the Homework 1 file.
+[Access to Homework 1](files/360HW1.html) is the Homework 1 file.
