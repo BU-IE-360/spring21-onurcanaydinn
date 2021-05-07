@@ -9,3 +9,9 @@
 [Access to Homework 1](files/360HW1.html) is the Homework 1 file.
 
 [Click for R Script](files/HW1RSCRIPTT.R) 
+
+## Homework 2
+
+[Access to Homework2](files/HW2.html) is the Homework 2 file.
+
+[Click for R Script](files/Hw-2.R)
