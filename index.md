@@ -15,3 +15,10 @@
 [Access to Homework2](files/HW2.html) is the Homework 2 file.
 
 [Click for R Script](files/Hw-2.R)
+
+
+## Homework 3
+
+[Access to Homework 3](files/hw3.html) is the Homework 3 file.
+
+[Click for R script](files/hw3-r.R)
