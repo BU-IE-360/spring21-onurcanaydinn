@@ -372,7 +372,7 @@ Now,we forecast our value with our forecasted parameters.
 forecast_Log<-predict(lm_model2_1,data.frame(month=as.factor(6) ,price=price_model_forecast[1],category_sold=cat_fcast[1],lag_1=lag1_fcast[1],lag_2=lag_2_model_forecast[1],outlier_great=outlier_model_forecast[1]))
 
 fcast<-exp(forecast_Log)
-
+fcast
 
 ```
 
@@ -461,6 +461,10 @@ our models' goodness.Let us put them into model.
 
 
 ```{r}
+maproducts[, residuals:= NA]
+maproducts$residuals[2:372] <- lm_model$residuals
+maproducts[!is.na(residuals), quant5:=quantile(residuals,0.05)]
+maproducts[!is.na(residuals), quant95:=quantile(residuals,0.95)]
 maproducts[,outlier_small:=as.numeric(residuals<quant5)]
 maproducts[,outlier_great:=as.numeric(residuals>quant95)]
 
@@ -484,7 +488,7 @@ maproducts[,weeks:=week(event_date)]
 
 head(maproducts)
 lm_model3_2<- lm(maproducts,formula=log_sold~as.factor(month)+price+trend+favored_count+category_sold+lag_1+lag_2+category_favored+outlier_great+weeks)
-summary(lm_model3)
+summary(lm_model3_2)
 #pick model 3
 ```
 
@@ -1794,7 +1798,11 @@ predict(product3_reg,data.frame(basket_count=basket_count_model_forecast[16],fav
 
 
 ## Including Plots
+```{r pressure, echo=FALSE}
+data_path='/Users/onurcanaydin/Desktop/360\ proje/ProjectRawData.csv'
+projectdata<-fread(data_path)
 
+```
 You can also embed plots, for example:
 
 ```{r pressure, echo=FALSE}
@@ -1969,12 +1977,7 @@ head(IslakMendil$sold_count,50)
 
 
 ```
-```{r pressure, echo=FALSE}
-data_path='/Users/onurcanaydin/Desktop/360\ proje/ProjectRawData.csv'
-projectdata<-fread(data_path)
 
-head(projectdata,20)
-```
 
 
 ##YuzTemizleyici
