@@ -32,4 +32,7 @@
 
 ## Project Report
 
+[Access to Project Report](files/project.Rmd) is the Homework 3 file.
+
+[Click for Rmd file](files/project.Rmd))
 
